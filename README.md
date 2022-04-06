@@ -236,3 +236,242 @@ public class MyProgram extends ConsoleProgram
         }
     }
     
+    
+    //Calcuator Class Code:
+    
+  public class Calculator
+{
+    // constructors
+    String convertDecimal;
+    
+    //int return types for equations. 
+    public int addI (int userIntNumber1, int userIntNumber2)
+    {
+        int addIResult = userIntNumber1 + userIntNumber2;
+        
+        return addIResult;
+    }
+    
+    public int subtractI (int userIntNumber1, int userIntNumber2)
+    {
+        int subIResult = userIntNumber1 - userIntNumber2;
+        
+        return subIResult;
+    }
+    
+    public int multiplyI (int userIntNumber1, int userIntNumber2)
+    {
+        int multiplyIResult = userIntNumber1 * userIntNumber2;
+        
+        return multiplyIResult;
+    }
+    
+    public int divideI (int userIntNumber1, int userIntNumber2)
+    {
+        int divideIResult = userIntNumber1 / userIntNumber2;
+        
+        return divideIResult;
+    }
+    
+    
+    //double return types for equations.
+    public double addD (double userDoubleNumber1, double userDoubleNumber2)
+    {
+        double addDResult = userDoubleNumber1 + userDoubleNumber2;
+        
+        return addDResult;
+    }
+    
+    
+    public double subtractD (double userDoubleNumber1, double userDoubleNumber2)
+    {
+        double subDResult = userDoubleNumber1 - userDoubleNumber2;
+        
+        return subDResult;
+    }
+    
+    public double multiplyD (double userDoubleNumber1, double userDoubleNumber2)
+    {
+        double mutliplyDResult = userDoubleNumber1 * userDoubleNumber2;
+        
+        return mutliplyDResult;
+    }
+    
+    public double divideD (double userDoubleNumber1, double userDoubleNumber2)
+    {
+        double divideDResult = userDoubleNumber1 / userDoubleNumber2;
+        
+        return divideDResult;
+    }
+    
+    //factorial operation and return
+    public int factorial (int userIntNumber1)
+    {
+        int factorialResult = 1;
+        for(int i = 1;i <= userIntNumber1;i++)
+        {
+            factorialResult *=i;
+        }
+        
+        return factorialResult;
+    }
+    
+    //finding the area of a triangle operation
+    public double areaOfTriangle (double triangleBase, double triangleHeight, double triangleDegree )
+    {
+        //the step below step initializes Pi
+        double pi = 3.141592653589793;
+        double triangleRadiants = multiplyD(triangleDegree, pi) /180;
+        double triangleDegrees = Math.sin(triangleRadiants);
+        double sideResult = multiplyD(triangleBase, triangleHeight);
+        double finalSideResult = multiplyD(.5, sideResult);
+        double areaResult = multiplyD(triangleDegrees, finalSideResult);
+        
+        return areaResult;
+    }
+    
+    
+    //Converting decimal to another number system. 
+    public String convert (int decimalNum, int numSystem)
+    {
+        //https://www.programiz.com/java-programming/examples/binary-decimal-convert 
+        //this site helped me perform my code
+        if(numSystem == 2)
+        {   
+            System.out.println("Converting Decimal to Binary: ");
+            //intitializing
+            String binaryNum ="";
+            int remainder = 0, i = 1, step = 1;
+            while(decimalNum != 0)
+            {
+                remainder = decimalNum % 2;
+                System.out.println("Step " + step++ + ": " + decimalNum + "/2 ");
+                System.out.println("Quotient = " + decimalNum/2 + ", remainder = " + remainder);
+                decimalNum /=2;
+                
+                binaryNum = remainder + binaryNum;
+                i *= 10;
+                
+            }
+            
+            return binaryNum;
+        }
+        
+        else if(numSystem == 8)
+        {   
+            System.out.println("Converting Decimal to Octal: ");
+            //intitializing
+            String octalNum = "";
+            int remainder = 0, i = 1, step = 1;
+            while(decimalNum != 0)
+            {
+                remainder = decimalNum % 8;
+                System.out.println("Step " + step++ + ": " + decimalNum + "/8 ");
+                System.out.println("Quotient = " + decimalNum/8 + ", remainder = " + remainder);
+                decimalNum /=8;
+                
+                octalNum = remainder + octalNum;
+                i *= 10;
+                
+            }
+            
+            return octalNum;
+        }
+        
+        else if(numSystem == 16)
+        {   
+            System.out.println("Converting Decimal to Hexidecimal: ");
+            //intitializing
+            String hexNum ="";
+            int remainder = 0, i = 1, step = 1;
+            String convRemainder = "";
+            while(decimalNum != 0)
+            {
+                //Converting dec numbers to letters for hex
+                remainder = decimalNum % 16;
+                if(remainder == 1)
+                {
+                    convRemainder = "1";
+                }
+                else if(remainder == 2)
+                {
+                    convRemainder = "2";
+                }
+                else if(remainder == 3)
+                {
+                    convRemainder = "3";
+                }
+                else if(remainder == 4)
+                {
+                    convRemainder = "4";
+                }
+                else if(remainder == 5)
+                {
+                    convRemainder = "5";
+                }
+                else if(remainder == 6)
+                {
+                    convRemainder = "6";
+                }
+                else if(remainder == 7)
+                {
+                    convRemainder = "7";
+                }
+                else if(remainder == 8)
+                {
+                    convRemainder = "8";
+                }
+                else if(remainder == 9)
+                {
+                    convRemainder = "9";
+                }
+                else if(remainder == 10)
+                {
+                    convRemainder = "A";
+                }
+                else if(remainder == 11)
+                {
+                    convRemainder = "B";
+                }
+                else if(remainder == 12)
+                {
+                    convRemainder = "C";
+                }
+                else if(remainder == 13)
+                {
+                    convRemainder = "D";
+                }
+                else if(remainder == 14)
+                {
+                    convRemainder = "E";
+                }
+                else if(remainder == 15)
+                {
+                    convRemainder = "G";
+                }
+                else if(remainder == 16)
+                {
+                    convRemainder = "F";
+                }
+                System.out.println("Step " + step++ + ": " + decimalNum + "/16 ");
+                System.out.println("Quotient = " + decimalNum/16 + ", remainder = " + convRemainder);
+                decimalNum /=16;
+                
+                hexNum = convRemainder + hexNum;
+                
+                
+                i *= 10;
+                
+                
+                
+            }
+            
+            return hexNum;
+            
+            
+        }
+        
+        return convertDecimal;
+    }
+}  
+    
